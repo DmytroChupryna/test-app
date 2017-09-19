@@ -5,23 +5,21 @@
       <div class="card">
         <div class="card-content">
           <div class="row">
-
-
-
-            <form class="col s12" [formGroup]="addProductForm" (ngSubmit)="onSubmit($event)" >
-
+            <form class="col s12" [formGroup]="addProductForm" (ngSubmit)="onSubmit($event)" novalidate>
               <div class="row">
                 <div class="input-field col s12">
-                  <input formControlName="title" id="title" type="text" class="validate" required minlength="4"
+                  <input formControlName="title" id="title" type="text" class="validate" minlength="4"
                          name="title">
                   <label for="title">Title product</label>
+                  <span class="label-error">min 4 symbols</span>
                 </div>
               </div>
-
               <div class="row">
                 <div class="input-field col s12">
-                  <input formControlName="price" id="price" type="number" class="validate" required name="price">
+                  <input formControlName="price" id="price" type="text" class="validate" required name="price"
+                         pattern="[0-9]+">
                   <label for="price">Price</label>
+                  <span class="label-error" [ngClass]="{'invalid': price}">only numbers</span>
                 </div>
               </div>
               <div class="row" *ngIf="img.length>0">
@@ -34,7 +32,7 @@
                   <div class="file-field input-field">
                     <div class="btn">
                       <span>Upload image</span>
-                      <input id="file"  type="file" required name="file"
+                      <input id="file"  type="file" required name="file" minlength="10"
                              (change)="onFileWrite($event)" >
                     </div>
                     <div class="file-path-wrapper">
@@ -45,13 +43,16 @@
               </div>
               <div class="row" *ngIf="invalidFile">
                 <div class="col s12">
-                  <p class="red-text text-accent-4">Invalid format file. Only image.</p>
+                  <p class="red-text text-accent-4">Invalid format file. Only image(png,jpeg,bmp,svg)</p>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <textarea formControlName="desc" id="desc" name="desc" class="materialize-textarea" required></textarea>
+                  <textarea formControlName="desc" id="desc" name="desc" minlength="10"
+                            class="valid materialize-textarea"
+                            required></textarea>
                   <label for="desc">Description</label>
+                  <span class="label-error">min 10 symbols</span>
                 </div>
               </div>
 

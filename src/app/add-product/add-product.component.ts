@@ -11,37 +11,32 @@ import {Router} from "@angular/router";
 export class AddProductComponent implements OnInit {
 
   public addProductForm = this.fb.group({
-    title: ['',Validators.minLength(4)],
-    price: ['',Validators.required],
-    desc: ['',Validators.minLength(10)]
+    title: ['', Validators.minLength(4)],
+    price: ['',Validators.pattern(/[0-9]/)],
+    desc: ['', Validators.minLength(10)]
   });
+
   public statusForm: boolean = false;
-  public invalidFile:boolean = false;
+  public invalidFile: boolean = false;
   public img: string = '';
   constructor(
       public fb: FormBuilder,
       private UppdateProductsService_ : UppdateProductsService,
       private router: Router) { }
 
-  ngOnInit() {
-
-  }
-
-
+  ngOnInit() {}
   onSubmit(e){
     this.statusForm =  this.addProductForm.status == 'VALID' ;
     if(this.statusForm){
       let sendObj = {
         title: this.addProductForm.value.title,
         desc: this.addProductForm.value.desc,
-        price: this.addProductForm.value.price,
+        price: parseFloat(this.addProductForm.value.price),
         image: this.img
       };
       this.UppdateProductsService_.setProductToList(sendObj);
       this.addProductForm.reset();
-
       this.UppdateProductsService_.sendStateAddProduct('true');
-
       this.router.navigate(['/'])
     }
   }

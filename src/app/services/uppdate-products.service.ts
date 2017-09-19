@@ -52,6 +52,7 @@ export class UppdateProductsService {
   }
 
   private subject = new Subject<any>();
+
   sendStateAddProduct(message: string) {
     this.subject.next(message);
   }

@@ -9,7 +9,7 @@ import {productModel} from "../models/product.model";
 export class ProdListComponent implements OnInit {
   @Input() listProducts: productModel[] = [];
 
-  private confirmation: boolean = false;
+  public confirmation: boolean = false;
   private bufferIndex: number;
   constructor() {}
   ngOnInit() {}

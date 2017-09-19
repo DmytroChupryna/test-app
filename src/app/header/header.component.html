@@ -1,6 +1,19 @@
 <nav class="main_header">
-  <div class="nav-wrapper ">
-    <a routerLink="/" class="logo">Logo</a>
+  <div class="nav-wrapper">
+    <div class="inner-wrapper">
+      <a routerLink="/" class="logo">Logo</a>
+      <ul>
+        <li>
+          <a routerLink="/">Home</a>
+        </li>
+        <li>
+          <a routerLink="/products">Products</a>
+        </li>
+        <li>
+          <a routerLink="/contacts">Contacts</a>
+        </li>
+      </ul>
+    </div>
     <a [routerLink]="['/addProduct']" class="right btn waves-effect waves-light">Add product<i
             class="material-icons right">add</i></a>
   </div>

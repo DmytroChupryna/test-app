@@ -34,3 +34,8 @@
 .mess.active{
     top: 0;
 }
+.inner-wrapper{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
