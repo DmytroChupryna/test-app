@@ -37,7 +37,7 @@ export class AddProductComponent implements OnInit {
       this.UppdateProductsService_.setProductToList(sendObj);
       this.addProductForm.reset();
       this.UppdateProductsService_.sendStateAddProduct('true');
-      this.router.navigate(['/'])
+      this.router.navigate(['/products'])
     }
   }
 

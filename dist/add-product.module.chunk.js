@@ -74,7 +74,7 @@ var AddProductComponent = (function () {
             this.UppdateProductsService_.setProductToList(sendObj);
             this.addProductForm.reset();
             this.UppdateProductsService_.sendStateAddProduct('true');
-            this.router.navigate(['/']);
+            this.router.navigate(['/products']);
         }
     };
     AddProductComponent.prototype.onFileWrite = function (e) {
