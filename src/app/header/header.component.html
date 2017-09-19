@@ -1,0 +1,10 @@
+<nav class="main_header">
+  <div class="nav-wrapper ">
+    <a routerLink="/" class="logo">Logo</a>
+    <a [routerLink]="['/addProduct']" class="right btn waves-effect waves-light">Add product<i
+            class="material-icons right">add</i></a>
+  </div>
+</nav>
+<div class="mess" [ngClass]="{'active': mess}">
+  New product added
+</div>

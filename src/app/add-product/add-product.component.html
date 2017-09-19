@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="col m10 s12">
+      <h3>Add new product</h3>
+      <div class="card">
+        <div class="card-content">
+          <div class="row">
+
+
+
+            <form class="col s12" [formGroup]="addProductForm" (ngSubmit)="onSubmit($event)" >
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input formControlName="title" id="title" type="text" class="validate" required minlength="4"
+                         name="title">
+                  <label for="title">Title product</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input formControlName="price" id="price" type="number" class="validate" required name="price">
+                  <label for="price">Price</label>
+                </div>
+              </div>
+              <div class="row" *ngIf="img.length>0">
+                <div class="col s4">
+                  <img src="{{img}}" alt="" class="responsive-img">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s12">
+                  <div class="file-field input-field">
+                    <div class="btn">
+                      <span>Upload image</span>
+                      <input id="file"  type="file" required name="file"
+                             (change)="onFileWrite($event)" >
+                    </div>
+                    <div class="file-path-wrapper">
+                      <input class="file-path validate" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" *ngIf="invalidFile">
+                <div class="col s12">
+                  <p class="red-text text-accent-4">Invalid format file. Only image.</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea formControlName="desc" id="desc" name="desc" class="materialize-textarea" required></textarea>
+                  <label for="desc">Description</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col s12">
+                  <button class="btn waves-effect waves-light btn-large right red lighten-1 " type="submit"
+                          name="action">Add
+                    <i class="material-icons right">send</i>
+                  </button>
+                </div>
+              </div>
+
+            </form>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

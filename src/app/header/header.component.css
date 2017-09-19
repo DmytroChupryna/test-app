@@ -1,0 +1,36 @@
+.main_header .nav-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+.logo{
+    font-size:2.1em;
+}
+.main_header i{
+    font-size: 28px;
+    line-height: 36px;
+    height: 36px;
+
+}
+.main_header{
+    margin-bottom: 50px;
+}
+
+.mess{
+    position: fixed;
+    width: 300px;
+    background: rgba(0,0,0,.8);
+    color: #fff;
+    font: 500 16px 'Roboto', sans-serif;
+    top: -100px;
+    transition: all 0.375s;
+    text-transform: uppercase;
+    padding: 12px 0;
+    text-align: center;
+    border-radius: 0 0 12px 12px;
+    left: calc( 50% - 150px );
+}
+.mess.active{
+    top: 0;
+}

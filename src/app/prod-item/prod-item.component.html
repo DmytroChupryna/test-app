@@ -1,0 +1,18 @@
+<div >
+    <div class="card">
+        <a class="card-image" [routerLink]="['/products',item.link]">
+            <img src="{{item.image}}">
+            <span class="card-title  grey-text text-darken-4">{{item.title}}</span>
+        </a>
+        <div class="card-content">
+            <p class="description">
+                {{item.description}}
+            </p>
+            <p class="price right-align">{{item.price.toLocaleString('en') | currency:'USD':true}}</p>
+        </div>
+        <div class="card-action">
+            <a [routerLink]="['/products',item.link]" >Read more</a>
+            <a role="button" (click)="removeProd(index)" >Delete</a>
+        </div>
+    </div>
+</div>
